@@ -1,0 +1,16 @@
+[2026-01-10T01:58:32.479+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-10T01:58:32.667+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T01:52:00+00:00 [queued]>
+[2026-01-10T01:58:32.700+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T01:52:00+00:00 [queued]>
+[2026-01-10T01:58:32.702+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-01-10T01:58:32.745+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_snowflake> on 2026-01-10 01:52:00+00:00
+[2026-01-10T01:58:32.797+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'load_snowflake', 'scheduled__2026-01-10T01:52:00+00:00', '--job-id', '141', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmpywdebgcn']
+[2026-01-10T01:58:32.790+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=90573) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-10T01:58:32.805+0000] {standard_task_runner.py:91} INFO - Job 141: Subtask load_snowflake
+[2026-01-10T01:58:32.807+0000] {standard_task_runner.py:64} INFO - Started process 91050 to run task
+[2026-01-10T01:58:34.003+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T01:52:00+00:00 [running]> on host ec4c21923cef
+[2026-01-10T01:58:44.162+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 141 for task load_snowflake ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 91050)
+[2026-01-10T01:58:46.287+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-01-10T01:58:46.353+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-10T01:58:46.360+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

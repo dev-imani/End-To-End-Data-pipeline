@@ -1,0 +1,628 @@
+[2026-01-10T01:59:42.572+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-10T01:59:42.667+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T01:58:00+00:00 [queued]>
+[2026-01-10T01:59:42.687+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T01:58:00+00:00 [queued]>
+[2026-01-10T01:59:42.689+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-01-10T01:59:42.721+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_snowflake> on 2026-01-10 01:58:00+00:00
+[2026-01-10T01:59:42.745+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=93178) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-10T01:59:42.750+0000] {standard_task_runner.py:64} INFO - Started process 93181 to run task
+[2026-01-10T01:59:42.743+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'load_snowflake', 'scheduled__2026-01-10T01:58:00+00:00', '--job-id', '145', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmp8qigdxxk']
+[2026-01-10T01:59:42.752+0000] {standard_task_runner.py:91} INFO - Job 145: Subtask load_snowflake
+[2026-01-10T01:59:42.909+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T01:58:00+00:00 [running]> on host ec4c21923cef
+[2026-01-10T01:59:43.290+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='minio_to_snowflake' AIRFLOW_CTX_TASK_ID='load_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2026-01-10T01:58:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-10T01:58:00+00:00'
+[2026-01-10T01:59:43.352+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-10T01:59:43.480+0000] {connection.py:408} INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2026-01-10T01:59:43.483+0000] {connection.py:1258} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-01-10T01:59:44.531+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-01-10T01:59:44.755+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-01-10T01:59:44.968+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-01-10T01:59:45.188+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2026-01-10T01:59:46.676+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994102.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:47.106+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994114.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:47.717+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994127.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:48.325+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994138.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:48.956+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994149.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:49.574+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994160.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:50.153+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994171.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:50.736+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994189.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:51.328+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994201.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:51.912+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994212.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:52.489+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994225.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:53.068+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994235.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:53.673+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994246.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:54.247+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994258.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:54.849+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994270.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:55.423+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994281.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:56.082+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997418.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:56.923+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997428.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T01:59:58.916+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997440.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:07.162+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997450.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:08.066+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997461.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:14.746+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997471.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:15.452+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997482.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:16.157+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997492.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:16.886+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000525.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:17.557+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000535.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:18.671+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000546.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:19.304+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000556.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:19.896+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000567.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:20.492+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000579.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:21.082+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000592.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:21.667+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000604.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:22.252+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000616.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:22.854+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000631.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:23.467+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000644.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:24.091+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000655.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:24.694+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000666.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:25.331+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000677.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:26.174+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000688.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:26.847+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000698.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:27.582+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000710.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:28.893+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000720.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:30.142+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000731.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:31.095+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000742.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:31.885+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000753.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:32.665+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000764.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:33.677+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000776.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:34.441+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000787.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:35.280+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000797.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:36.058+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000808.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:36.787+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000819.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:37.434+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000831.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:38.028+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000843.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:38.701+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000855.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:39.276+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000867.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:39.853+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000878.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:40.431+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000890.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:41.071+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000901.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:42.082+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000912.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:42.714+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000921.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:43.341+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000932.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:44.016+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000942.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:44.741+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000953.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:45.402+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001779.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:46.043+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001791.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:46.635+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001803.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:47.285+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001813.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:47.999+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001825.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:48.648+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001837.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:49.275+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001849.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:49.920+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001859.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:00:50.556+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001868.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:06.548+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002255.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:07.227+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002265.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:07.938+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002275.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:08.601+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002285.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:09.276+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002294.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:10.059+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002304.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:10.885+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002313.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:12.645+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002323.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:13.408+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002333.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:14.004+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002343.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:14.742+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002355.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:15.399+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002366.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:16.025+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002377.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:16.707+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002388.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:17.422+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002399.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:18.067+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002410.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:18.682+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002420.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:19.317+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002432.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:19.965+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002443.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:21.106+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002455.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:21.647+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007256.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:22.080+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007269.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:22.757+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007280.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:23.403+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007292.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:23.808+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007307.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:24.389+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007321.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:24.991+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007333.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:25.589+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007344.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:26.184+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007357.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:26.782+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007370.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:27.408+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007381.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:28.122+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007392.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:28.763+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007403.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:29.371+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007414.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:30.031+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007425.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:30.754+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007435.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:31.416+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007446.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:32.063+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007457.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:32.688+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007467.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:33.308+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007477.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:33.899+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007488.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:34.668+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007499.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:35.236+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007508.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:35.876+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007518.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:36.603+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007528.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:37.244+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007546.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:37.886+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007557.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:38.482+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007567.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:39.108+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007577.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:39.691+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007588.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:40.303+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007600.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:41.029+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007612.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:41.662+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007621.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:42.304+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007631.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:42.904+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007641.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:43.530+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007651.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:44.179+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007662.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:44.984+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007675.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:45.600+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007689.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:46.225+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007703.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:46.884+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007719.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:47.497+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007732.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:48.128+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007742.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:48.724+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007753.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:49.368+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007764.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:50.286+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007777.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:50.913+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007789.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:51.518+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007802.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:52.179+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007814.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:52.775+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007826.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:53.436+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007839.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:54.062+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007852.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:54.649+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007864.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:55.226+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007876.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:55.817+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007888.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:56.411+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007905.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:56.986+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007918.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:57.557+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007930.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:58.134+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007941.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:58.736+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007952.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:01:59.462+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007965.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:00.048+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007976.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:00.630+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007986.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:01.206+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007998.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:01.805+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008011.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:02.386+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008024.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:03.037+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008037.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:03.624+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008052.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:04.222+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008065.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:04.816+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008078.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:05.487+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008090.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:40.614+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008104.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:41.324+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008116.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:42.027+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008127.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:42.725+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008140.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:43.581+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008151.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:44.616+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008163.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:02:48.367+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008174.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:12.544+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008185.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:13.129+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008196.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:13.698+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008208.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:14.303+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008220.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:15.022+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008230.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:15.661+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008241.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:16.298+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008252.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:16.908+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008264.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:17.504+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008277.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:18.110+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008288.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:18.746+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008300.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:19.367+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008312.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:19.971+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008324.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:20.607+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008335.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:21.915+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008346.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:22.540+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008356.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:23.145+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008367.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:23.775+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008378.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:56.640+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008389.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:57.288+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008399.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:58.100+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008411.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:58.725+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008422.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:59.357+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008432.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:03:59.991+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008444.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:00.683+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008456.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:01.378+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008468.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:02.277+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008479.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:02.925+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008491.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:03.801+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008504.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:04.456+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008516.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:05.281+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008527.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:05.949+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008538.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:46.396+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 213, in heartbeat
+    heartbeat_callback(session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/local_task_job_runner.py", line 261, in heartbeat_callback
+    self.task_instance.refresh_from_db()
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1821, in refresh_from_db
+    _refresh_from_db(task_instance=self, session=session, lock_for_update=lock_for_update)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 510, in _refresh_from_db
+    ti = TaskInstance.get_task_instance(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1807, in get_task_instance
+    return query.one_or_none()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2850, in one_or_none
+    return self._iter().one_or_none()
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2916, in _iter
+    result = self.session.execute(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2026-01-10T02:04:47.351+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2026-01-10T02:04:47.778+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008551.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:48.429+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008562.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:50.290+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008573.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:52.380+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008584.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:53.051+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008596.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:53.682+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008608.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:54.441+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008619.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:55.066+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008630.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:55.680+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008641.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:56.345+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008652.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:56.985+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008671.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:57.649+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008684.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:58.262+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008695.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:58.913+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008705.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:04:59.604+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008717.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:00.218+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008728.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:00.846+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008739.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:01.509+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008750.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:02.118+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008762.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:02.737+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008773.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:03.365+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008783.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:03.972+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008798.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:04.613+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008811.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:05.243+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008824.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:05.877+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008837.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:06.487+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008851.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:07.098+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008864.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:07.743+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008877.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:08.932+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008890.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:09.559+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008903.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:10.323+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008916.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:11.095+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008929.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:11.771+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008942.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:12.425+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008956.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:13.168+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008966.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:14.096+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008977.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:14.818+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768008989.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:15.497+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009000.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:16.193+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009012.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:16.905+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009023.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:17.641+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009035.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:18.301+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009046.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:19.022+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009057.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:19.697+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009068.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:20.362+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009079.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:20.991+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009090.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:21.784+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009102.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:22.471+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009114.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:23.354+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009125.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:24.085+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009136.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:24.765+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009147.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:25.506+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009158.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:26.174+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009169.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:26.798+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009181.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:27.412+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009192.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:28.049+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009203.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:28.716+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009214.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:29.472+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009225.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:30.276+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009236.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:30.915+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009247.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:31.530+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009258.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:32.169+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009269.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:32.844+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009280.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:33.492+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009291.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:34.123+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009303.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:34.844+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009314.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:35.586+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009325.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:36.315+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009335.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:36.910+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009346.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:37.582+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009357.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:38.260+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009368.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:38.983+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009379.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:39.736+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009390.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:40.484+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009401.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:41.150+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009412.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:41.957+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009423.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:42.584+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009434.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:43.258+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009444.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:43.897+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009455.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:44.536+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009465.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:45.222+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009477.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:45.906+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009489.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:46.590+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009501.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:47.226+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009511.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:48.657+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009523.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:49.598+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009533.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:51.085+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009544.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:05:57.137+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x75f17c31bb30>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /queries/v1/query-request?requestId=c07878e7-a314-45ba-8da6-eb230e0a8a92&request_guid=2f1e6416-f310-46a6-8a11-0d425d2175ad
+[2026-01-10T02:06:02.952+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009555.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:03.663+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009566.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:04.306+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009579.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:04.916+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009590.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:05.558+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009601.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:06.157+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009612.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:06.823+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009623.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:07.453+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009635.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:08.200+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009647.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:08.817+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009658.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:09.459+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009668.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:10.078+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009679.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:10.679+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009691.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:11.303+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009706.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:11.922+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009720.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:12.523+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009730.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:13.131+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009740.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:13.750+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009750.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:14.349+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009760.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:14.948+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009771.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:15.587+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009782.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:16.187+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009792.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:16.784+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009803.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:17.387+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009815.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:17.998+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009829.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:18.933+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009840.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:19.442+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009852.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:20.158+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009862.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:20.856+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009874.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:21.565+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009886.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:22.482+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009901.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:23.761+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009915.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:25.095+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009930.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:25.909+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009941.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:26.741+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009952.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:27.783+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009963.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:29.164+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009975.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:30.090+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009986.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:30.834+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768009998.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:31.576+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010009.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:32.440+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010020.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:33.605+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010031.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:34.191+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010043.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:35.043+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010055.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:35.827+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010067.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:36.871+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010080.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:37.567+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010091.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:38.826+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010104.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:42.464+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010126.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:44.845+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010146.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:46.039+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010164.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:48.528+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010186.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:49.355+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010200.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:51.628+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010212.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:53.443+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010226.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:54.342+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010239.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:55.268+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010252.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:56.054+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010265.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:57.388+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010277.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:58.472+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010289.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:06:59.367+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010302.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:01.697+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010316.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:02.934+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010330.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:08.478+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768010341.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:09.867+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994107.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:10.570+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994120.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:12.367+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994132.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:12.859+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994142.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:13.426+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994153.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:14.022+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994164.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:14.521+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994182.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:15.026+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994193.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:15.625+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994205.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:16.397+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994216.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:16.978+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994228.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:17.544+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994240.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:18.034+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994250.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:18.816+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994263.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:21.104+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767994274.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:21.680+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997421.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:22.110+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997432.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:22.542+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997443.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:34.086+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997454.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:34.482+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997465.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:34.906+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997474.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:35.319+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997485.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:35.753+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1767997494.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:36.169+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000528.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:36.907+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000539.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:37.595+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000549.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:38.028+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000559.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:38.644+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000572.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:39.173+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000585.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:39.659+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000597.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:40.166+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000609.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:40.694+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000623.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:41.283+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000637.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:41.804+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000648.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:42.440+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000659.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:43.073+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000670.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:43.579+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000681.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:44.274+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000692.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:44.732+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000703.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:45.713+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000714.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:46.165+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000724.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:46.760+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000735.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:47.289+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000746.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:47.953+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000757.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:48.454+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000768.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:50.507+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000780.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:51.206+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000791.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:51.869+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000801.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:52.583+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000812.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:53.138+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000824.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:53.676+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000836.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:54.241+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000848.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:54.803+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000860.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:55.315+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000871.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:55.821+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000883.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:56.380+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000894.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:56.891+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000905.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:57.425+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000914.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:58.442+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000925.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:07:59.506+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000935.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:00.301+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000946.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:00.783+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768000957.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:01.381+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001784.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:01.968+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001796.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:02.462+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001806.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:02.950+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001818.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:03.426+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001830.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:03.897+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001842.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:04.386+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001852.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:04.962+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001862.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:05.505+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768001871.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:06.032+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002259.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:06.511+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002268.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:07.189+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002278.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:07.922+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002287.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:08.458+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002297.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:09.209+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002306.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:09.979+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002316.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:11.034+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002326.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:11.742+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002336.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:12.464+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002347.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:13.567+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002359.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:14.257+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002371.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:16.510+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002381.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:17.995+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002392.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:19.009+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002403.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:19.855+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002413.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:20.811+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002425.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:21.750+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002436.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:23.305+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002448.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:24.329+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768002459.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:25.418+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007262.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:26.312+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007273.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:27.282+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007285.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:28.072+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007299.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:28.844+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007313.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:29.599+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007325.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:30.318+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007337.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:31.308+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007349.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:32.132+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007363.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:32.889+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007374.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:33.685+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007385.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:34.827+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007396.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:34.414+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007407.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:35.600+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007418.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:36.865+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007428.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:37.759+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007439.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:38.702+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007449.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:39.593+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007461.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:45.793+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007470.json to Snowflake stage for bronze_stock_quotes_raw
+[2026-01-10T02:08:46.736+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/minio_downloads/1768007481.json to Snowflake stage for bronze_stock_quotes_raw

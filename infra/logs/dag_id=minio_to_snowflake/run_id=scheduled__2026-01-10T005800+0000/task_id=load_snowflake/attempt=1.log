@@ -1,0 +1,49 @@
+[2026-01-10T00:59:22.754+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-10T00:59:22.825+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T00:58:00+00:00 [queued]>
+[2026-01-10T00:59:22.840+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T00:58:00+00:00 [queued]>
+[2026-01-10T00:59:22.841+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-01-10T00:59:22.862+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_snowflake> on 2026-01-10 00:58:00+00:00
+[2026-01-10T00:59:22.880+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'minio_to_snowflake', 'load_snowflake', 'scheduled__2026-01-10T00:58:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/minio_to_snowflake.py', '--cfg-path', '/tmp/tmp9aafrxc9']
+[2026-01-10T00:59:22.886+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask load_snowflake
+[2026-01-10T00:59:22.886+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=4971) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-10T00:59:22.888+0000] {standard_task_runner.py:64} INFO - Started process 4974 to run task
+[2026-01-10T00:59:22.996+0000] {task_command.py:426} INFO - Running <TaskInstance: minio_to_snowflake.load_snowflake scheduled__2026-01-10T00:58:00+00:00 [running]> on host ec4c21923cef
+[2026-01-10T00:59:23.141+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='minio_to_snowflake' AIRFLOW_CTX_TASK_ID='load_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2026-01-10T00:58:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-10T00:58:00+00:00'
+[2026-01-10T00:59:23.143+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-10T00:59:23.183+0000] {connection.py:408} INFO - Snowflake Connector for Python Version: 3.11.0, Python Version: 3.12.4, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2026-01-10T00:59:23.185+0000] {connection.py:1258} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2026-01-10T00:59:24.861+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-10T00:59:24.862+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/minio_to_snowflake.py", line 58, in load_to_snowflake
+    cur.execute(f"PUT file://{f} @%bronze_stock_quotes_raw")
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 090106 (22000): 01c1a09b-0000-b257-0000-0000fb353191: Cannot perform STAGE PUT. This session does not have a current schema. Call 'USE SCHEMA', or use a qualified name.
+[2026-01-10T00:59:24.877+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=minio_to_snowflake, task_id=load_snowflake, run_id=scheduled__2026-01-10T00:58:00+00:00, execution_date=20260110T005800, start_date=20260110T005922, end_date=20260110T005924
+[2026-01-10T00:59:24.891+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 11 for task load_snowflake (090106 (22000): 01c1a09b-0000-b257-0000-0000fb353191: Cannot perform STAGE PUT. This session does not have a current schema. Call 'USE SCHEMA', or use a qualified name.; 4974)
+[2026-01-10T00:59:24.914+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-01-10T00:59:24.935+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-10T00:59:24.937+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
