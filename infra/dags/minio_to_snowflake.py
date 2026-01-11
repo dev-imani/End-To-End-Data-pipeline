@@ -19,6 +19,8 @@ SNOWFLAKE_DB = "STOCKS_MDS"
 SNOWFLAKE_SCHEMA = "COMMON"
 SNOWFLAKE_TABLE = "bronze_stock_quotes_raw"
 
+
+
 def download_from_minio():
     os.makedirs(LOCAL_DIR, exist_ok=True)
     s3 = boto3.client(

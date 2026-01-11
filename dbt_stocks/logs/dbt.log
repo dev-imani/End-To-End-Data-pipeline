@@ -1,0 +1,67 @@
+[0m02:31:08.271744 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195CFAD6960>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195CEF4E870>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195CCC7CBF0>]}
+
+
+============================== 02:31:08.290558 | 9f3b45f5-b165-4cc0-90f4-37998c08c832 ==============================
+[0m02:31:08.290558 [info ] [MainThread]: Running with dbt=1.11.2
+[0m02:31:08.291804 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\Administrator\\.dbt', 'indirect_selection': 'eager', 'invocation_command': 'dbt init .', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m02:31:17.512178 [error] [MainThread]: Encountered an error:
+
+[0m02:31:17.527171 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\dbt\task\init.py", line 324, in run
+    project_name = self.get_valid_project_name()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\dbt\task\init.py", line 278, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\click\termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\click\termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m02:31:17.536268 [debug] [MainThread]: Command `dbt init` failed at 02:31:17.535536 after 9.53 seconds
+[0m02:31:17.538356 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195CF94A510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195D116F440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000195CFCB48F0>]}
+[0m02:31:17.540039 [debug] [MainThread]: Flushing usage events
+[0m02:31:20.053426 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m02:31:56.125921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018318259E50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001831C08F770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001831C08DF70>]}
+
+
+============================== 02:31:56.138479 | 06e88194-e27b-48b4-b31e-a6a0ff521ab3 ==============================
+[0m02:31:56.138479 [info ] [MainThread]: Running with dbt=1.11.2
+[0m02:31:56.138999 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\Administrator\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt init dbt_stocks', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m02:31:56.160638 [debug] [MainThread]: Starter project path: C:\Users\Public\realtimestocksmds\venv\Lib\site-packages\dbt\include\starter_project
+[0m02:31:56.185072 [info ] [MainThread]: 
+Your new dbt project "dbt_stocks" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m02:31:56.185619 [info ] [MainThread]: Setting up your profile.
+[0m02:32:56.079804 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m02:32:56.081663 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m02:32:56.082979 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m02:36:25.077510 [info ] [MainThread]: Profile dbt_stocks written to C:\Users\Administrator\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m02:36:25.103270 [debug] [MainThread]: Command `dbt init` succeeded at 02:36:25.101806 after 269.16 seconds
+[0m02:36:25.108872 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001831E43CBC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001831B9B0BC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001831B9B1820>]}
+[0m02:36:25.112412 [debug] [MainThread]: Flushing usage events
+[0m02:36:26.898044 [debug] [MainThread]: An error was encountered while trying to flush usage events

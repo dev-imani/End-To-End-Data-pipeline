@@ -14,6 +14,7 @@ s3 = boto3.client(
 
 bucket_name = "bronze-transactions"
 
+
 # Ensure bucket exists (idempotent)
 try:
     s3.head_bucket(Bucket=bucket_name)
