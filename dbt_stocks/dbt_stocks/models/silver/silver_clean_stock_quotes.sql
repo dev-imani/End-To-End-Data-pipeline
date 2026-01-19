@@ -11,3 +11,4 @@ SELECT
     fetched_at
 FROM {{ ref('bronze_stg_stock_quotes') }}
 WHERE current_price IS NOT NULL
+  AND symbol NOT LIKE '%:%'
