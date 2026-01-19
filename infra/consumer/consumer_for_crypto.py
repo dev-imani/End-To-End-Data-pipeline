@@ -16,14 +16,13 @@ MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY")
 MINIO_BUCKET = os.getenv("MINIO_BUCKET")
 KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS").split(",")
 
-# Topics to subscribe to
-TOPICS = ["company-news", "crypto-quotes", os.getenv("KAFKA_TOPIC", "stock-quotes")]
+# Topic for crypto quotes
+KAFKA_TOPIC = "crypto-quotes"
 
 # Validate MinIO credentials
 if not MINIO_ACCESS_KEY or not MINIO_SECRET_KEY:
     raise ValueError("MINIO_ACCESS_KEY and MINIO_SECRET_KEY must be set in .env file")
 
-# Initialize MinIO client
 s3 = boto3.client(
     "s3",
     endpoint_url=MINIO_ENDPOINT,
@@ -41,27 +40,24 @@ except Exception:
     s3.create_bucket(Bucket=bucket_name)
     print(f"Created bucket {bucket_name}.")
 
-# Define Consumer (multi-topic)
+# Define Consumer
 consumer = KafkaConsumer(
-    *TOPICS,
+    KAFKA_TOPIC,
     bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     auto_offset_reset="earliest",
     enable_auto_commit=True,
-    group_id="multi-consumer",
+    group_id="crypto-consumer",
     value_deserializer=lambda v: json.loads(v.decode("utf-8"))
 )
 
-print(f"Consumer streaming topics {TOPICS} and saving to MinIO...")
+print("Consumer streaming crypto quotes and saving to MinIO...")
 
 # Main Function
 for message in consumer:
     record = message.value
-    topic = message.topic
     symbol = record.get("symbol", "unknown")
     ts = record.get("fetched_at", int(time.time()))
-
-    # Organize by topic/symbol/timestamp
-    key = f"{topic}/{symbol}/{ts}.json"
+    key = f"crypto/{symbol}/{ts}.json"
 
     s3.put_object(
         Bucket=bucket_name,
@@ -69,4 +65,4 @@ for message in consumer:
         Body=json.dumps(record),
         ContentType="application/json"
     )
-    print(f"Saved record from topic '{topic}' for {symbol} to s3://{bucket_name}/{key}")
+    print(f"Saved crypto record for {symbol} to s3://{bucket_name}/{key}")
