@@ -1,21 +1,34 @@
-#Import requirements
+# Import requirements
 import time
 import json
 import requests
+import os
 from kafka import KafkaProducer
+from dotenv import load_dotenv
 
-#Define variables for API
-API_KEY= "d5gdb49r01qsbeejs4pgd5gdb49r01qsbeejs4q0"
-BASE_URL = "https://finnhub.io/api/v1/quote"
-SYMBOLS = ["AAPL", "MSFT", "TSLA", "GOOGL", "AMZN"]
+# Load environment variables from .env file
+load_dotenv()
 
-#Initial Producer
-producer = KafkaProducer (
-    bootstrap_servers=["localhost:29092"],
+# Define variables for API
+API_KEY = os.getenv("FINNHUB_API_KEY")
+BASE_URL = os.getenv("FINNHUB_BASE_URL")
+SYMBOLS = os.getenv("FINNHUB_SYMBOLS").split(",")
+KAFKA_BOOTSTRAP_SERVERS = os.getenv(
+    "KAFKA_BOOTSTRAP_SERVERS", "localhost:29092").split(",")
+
+# Validate API Key
+if not API_KEY:
+    raise ValueError("FINNHUB_API_KEY is not set in .env file")
+
+# Initial Producer
+producer = KafkaProducer(
+    bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     value_serializer=lambda v: json.dumps(v).encode("utf-8")
 )
 
-#Retrive Data
+# Retrive Data
+
+
 def fetch_quote(symbol):
     url = f"{BASE_URL}?symbol={symbol}&token={API_KEY}"
     try:
@@ -23,13 +36,14 @@ def fetch_quote(symbol):
         response.raise_for_status()
         data = response.json()
         data["symbol"] = symbol
-        data["fetched_at"] = int (time.time())
+        data["fetched_at"] = int(time.time())
         return data
     except Exception as e:
         print(f"Error fetching {symbol}: {e}")
         return None
 
-#Looping and Pushing to Stream
+
+# Looping and Pushing to Stream
 while True:
     for symbol in SYMBOLS:
         quote = fetch_quote(symbol)

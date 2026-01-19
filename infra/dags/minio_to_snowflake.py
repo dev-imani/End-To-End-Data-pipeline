@@ -4,21 +4,32 @@ import snowflake.connector
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
-MINIO_ENDPOINT = "http://minio:9000"
-MINIO_ACCESS_KEY = "admin"
-MINIO_SECRET_KEY = "password123"
-BUCKET = "bronze-transactions"
-LOCAL_DIR = "/tmp/minio_downloads"  # use absolute path for Airflow
+# Load environment variables from .env file
+load_dotenv()
 
-SNOWFLAKE_USER = "imani"
-SNOWFLAKE_PASSWORD = "Imani@095Love@14"
-SNOWFLAKE_ACCOUNT = "lo46566.uae-north.azure"
-SNOWFLAKE_WAREHOUSE = "COMPUTE_WH"
-SNOWFLAKE_DB = "STOCKS_MDS"
-SNOWFLAKE_SCHEMA = "COMMON"
-SNOWFLAKE_TABLE = "bronze_stock_quotes_raw"
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT_DOCKER")
+MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY")
+MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY")
+BUCKET = os.getenv("MINIO_BUCKET")
+LOCAL_DIR = os.getenv("LOCAL_DIR")
 
+SNOWFLAKE_USER = os.getenv("SNOWFLAKE_USER")
+SNOWFLAKE_PASSWORD = os.getenv("SNOWFLAKE_PASSWORD")
+SNOWFLAKE_ACCOUNT = os.getenv("SNOWFLAKE_ACCOUNT")
+SNOWFLAKE_WAREHOUSE = os.getenv("SNOWFLAKE_WAREHOUSE")
+SNOWFLAKE_DB = os.getenv("SNOWFLAKE_DATABASE")
+SNOWFLAKE_SCHEMA = os.getenv("SNOWFLAKE_SCHEMA")
+SNOWFLAKE_TABLE = os.getenv("SNOWFLAKE_TABLE")
+
+# Validate credentials
+if not all([MINIO_ACCESS_KEY, MINIO_SECRET_KEY]):
+    raise ValueError(
+        "MINIO_ACCESS_KEY and MINIO_SECRET_KEY must be set in .env file")
+if not all([SNOWFLAKE_USER, SNOWFLAKE_PASSWORD, SNOWFLAKE_ACCOUNT]):
+    raise ValueError(
+        "Snowflake credentials (USER, PASSWORD, ACCOUNT) are not set in .env file")
 
 
 def download_from_minio():
@@ -38,6 +49,7 @@ def download_from_minio():
         print(f"Downloaded {key} -> {local_file}")
         local_files.append(local_file)
     return local_files
+
 
 def load_to_snowflake(**kwargs):
     local_files = kwargs['ti'].xcom_pull(task_ids='download_minio')
@@ -68,6 +80,7 @@ def load_to_snowflake(**kwargs):
 
     cur.close()
     conn.close()
+
 
 default_args = {
     "owner": "airflow",

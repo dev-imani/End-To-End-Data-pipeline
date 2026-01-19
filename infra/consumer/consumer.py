@@ -1,19 +1,36 @@
-#Import requirements
+# Import requirements
 import json
 import boto3
 import time
+import os
 from kafka import KafkaConsumer
+from dotenv import load_dotenv
 
-#Minio Connection
+# Load environment variables from .env file
+load_dotenv()
+
+# Minio Connection
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT")
+MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY")
+MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY")
+MINIO_BUCKET = os.getenv("MINIO_BUCKET")
+KAFKA_BOOTSTRAP_SERVERS = os.getenv(
+    "KAFKA_BOOTSTRAP_SERVERS").split(",")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC")
+
+# Validate MinIO credentials
+if not MINIO_ACCESS_KEY or not MINIO_SECRET_KEY:
+    raise ValueError(
+        "MINIO_ACCESS_KEY and MINIO_SECRET_KEY must be set in .env file")
+
 s3 = boto3.client(
     "s3",
-    endpoint_url="http://localhost:9002",
-    aws_access_key_id="admin",
-    aws_secret_access_key="password123"
+    endpoint_url=MINIO_ENDPOINT,
+    aws_access_key_id=MINIO_ACCESS_KEY,
+    aws_secret_access_key=MINIO_SECRET_KEY
 )
 
-bucket_name = "bronze-transactions"
-
+bucket_name = MINIO_BUCKET
 
 # Ensure bucket exists (idempotent)
 try:
@@ -23,23 +40,23 @@ except Exception:
     s3.create_bucket(Bucket=bucket_name)
     print(f"Created bucket {bucket_name}.")
 
-#Define Consumer
+# Define Consumer
 consumer = KafkaConsumer(
-    "stock-quotes",
-    bootstrap_servers=["localhost:29092"],
+    KAFKA_TOPIC,
+    bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     auto_offset_reset="earliest",
     enable_auto_commit=True,
     group_id="bronze-consumer",
     value_deserializer=lambda v: json.loads(v.decode("utf-8"))
 )
 
-print("Consumerstreaming and saving to MinIO...")
+print("Consumer streaming and saving to MinIO...")
 
-#Main Function
+# Main Function
 for message in consumer:
     record = message.value
     symbol = record.get("symbol", "unknown")
-    ts = record.get("fetched_at",int(time.time()))
+    ts = record.get("fetched_at", int(time.time()))
     key = f"{symbol}/{ts}.json"
 
     s3.put_object(
@@ -48,5 +65,4 @@ for message in consumer:
         Body=json.dumps(record),
         ContentType="application/json"
     )
-    print(f"Saved record for {symbol} = s3://{bucket_name}/{key}")
-                    
+    print(f"Saved record for {symbol} to s3://{bucket_name}/{key}")
