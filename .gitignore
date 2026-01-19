@@ -46,6 +46,7 @@ dbt_internal_packages/
 
 # Airflow
 logs/
+infra/logs/
 airflow.db
 airflow-webserver.pid
 
