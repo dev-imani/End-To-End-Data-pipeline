@@ -1,0 +1,65 @@
+# Python
+venv/
+env/
+ENV/
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# DBT
+target/
+dbt_packages/
+logs/
+dbt_internal_packages/
+
+# Airflow
+logs/
+airflow.db
+airflow-webserver.pid
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MinIO/S3
+*.minio/
+
+# Temporary files
+*.tmp
+tmp/
+temp/
